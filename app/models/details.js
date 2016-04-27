@@ -5,7 +5,7 @@ var Details = new Schema({
 	date : Date,
 	expense_cat: String,
 	types : String,
-	amount : Number,
+	amount : Number
 });
 
 module.exports = mongoose.model('details', Details);

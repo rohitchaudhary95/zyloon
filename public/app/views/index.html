@@ -73,9 +73,11 @@
 						<label>Amount:</label><br>
 						<input type="number" ng-model="amount" class="form-control">
 					</div><br><br>
-					<button type="submit" class="btn btn-default" ng-click="addDetail()">Save Details</button>
-					<!--<button type="submit" class="btn btn-default" ng-click="showDetail()">Show previous Details</button>-->
-					&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-default" ng-click="showData(data)" style="background-color:red">Show graph</button>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<button type="submit" class="btn btn-default" ng-click="addDetail()" style="background-color:red">Save Details</button>
+					<!--<button type="submit" class="btn btn-default" ng-click="showDetail()">Show previous Details</button>
+					<button type="submit" class="btn btn-default" ng-click="showData(data)" >Show graph</button>
+					-->
 				</form>
 			</div>
 		</div>
@@ -112,14 +114,13 @@
 		</table>
 		<br>
 		<table ng-if="$root.isEdit[$index]" class="table table-bordered">
-			<!--<td><input type="date" ng-model="date" placeholder="{{key.date}}"></td>-->
-			<td><input type="text" ng-model="expense_cat" placeholder="{{key.expense_cat}}"></td>
-			<td><input type="text" ng-model="types" placeholder="{{key.types}}" list="typename">
+			<td><input type="text" ng-model="expense_cat1[$index]" placeholder="{{key.expense_cat}}"></td>
+			<td><input type="text" ng-model="types1[$index]" placeholder="{{key.types}}" list="typename">
 				<datalist id="typename">
 					<option value="Cash">
 					<option value="Credit">
 				</datalist></td>
-			<td><input type="number" ng-model="amount" placeholder="{{key.amount}}"></td>
+			<td><input type="number" ng-model="amount1[$index]" placeholder="{{key.amount}}"></td>
 			<td><button ng-click="updateDet($index)">update</button></td>
 			<td><button ng-click="$root.isEdit[$index]=!$root.isEdit[$index]">cancel</button>
 		</table>

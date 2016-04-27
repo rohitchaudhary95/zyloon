@@ -3,10 +3,12 @@ var maincnt = angular.module('main1Ctrl', ['detailService','d3'])
 
 maincnt.controller('Main1Controller', function(d3 ,Detail,$window,$location, $http, $scope){
 
+	$scope.expense_cat1=[], $scope.types1=[], $scope.amount1=[];
 	var vm = this;
 	Detail.showDetail()
 	.success(function(data){
 		$scope.data=data;
+		$scope.showData(data);
 	})
 
 	$scope.addDetail = function() {
@@ -16,14 +18,15 @@ maincnt.controller('Main1Controller', function(d3 ,Detail,$window,$location, $ht
 			console.log(data.message);
 			$scope.data = data;
 			$window.alert(data.message);
-			$window.location.reload();
-
 			Detail.showDetail()
 			.success(function(data){
 				$scope.data=data;
-				
+				$scope.showData(data);
 			})
-				$scope.showData(data);		
+			//$window.location.reload();
+
+			
+						
 		})
 	}
 
@@ -96,16 +99,21 @@ maincnt.controller('Main1Controller', function(d3 ,Detail,$window,$location, $ht
 			d.outerRadius = r;
     		return "translate(" + arc.centroid(d) + ")";}).attr("text-anchor", "middle").text( function(d, i) {
     		return data1[i].label;}
-    	);
+    	)
 }
 
 	
 
 	$scope.updateDet = function(index){
-		Detail.updateDet({_id:$scope.data[index]._id,expense_cat:$scope.expense_cat, types:$scope.types, amount:$scope.amount})
+		console.log($scope.data[index]._id);
+		console.log($scope.amount1[index]);
+		console.log($scope.types1[index]);
+		Detail.updateDet({_id:$scope.data[index]._id,expense_cat:$scope.expense_cat1[index], types:$scope.types1[index], amount:$scope.amount1[index]})
 		.success(function(data){
 			console.log(data);
-		})
+			$window.alert(data.message);
+			$window.location.reload();
+		}); 
 	}
 	
 });

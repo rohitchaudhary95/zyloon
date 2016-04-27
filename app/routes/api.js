@@ -31,6 +31,7 @@ module.exports = function(app, express){
 		Details.find({}, function(err, det){
 			if(err){
 				res.send(err);
+				return;
 			}
 
 			res.json(det);
@@ -41,6 +42,7 @@ module.exports = function(app, express){
 		Details.update({_id: req.body._id},{expense_cat:req.body.expense_cat,types:req.body.types,amount:req.body.amount},function(err){
 			if(err){
 				res.send(err);
+				return;
 			}
 			res.json({
 				success:true,
