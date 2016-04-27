@@ -18,15 +18,7 @@ maincnt.controller('Main1Controller', function(d3 ,Detail,$window,$location, $ht
 			console.log(data.message);
 			$scope.data = data;
 			$window.alert(data.message);
-			Detail.showDetail()
-			.success(function(data){
-				$scope.data=data;
-				$scope.showData(data);
-			})
-			//$window.location.reload();
-
-			
-						
+			$window.location.reload();
 		})
 	}
 
